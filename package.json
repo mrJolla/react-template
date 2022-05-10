@@ -1,56 +1,89 @@
 {
-  "name": "winkid",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@sentry/react": "^6.19.7",
-    "axios": "^0.27.2",
-    "classnames": "^2.3.1",
-    "dayjs": "^1.11.2",
-    "effector": "^22.3.0",
-    "effector-react": "^22.0.6",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-hook-form": "^7.31.0",
-    "react-hot-toast": "^2.2.0",
-    "react-loading-skeleton": "^3.1.0",
-    "react-query": "^3.39.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "rooks": "^5.11.0"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.31",
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
-    "eslint": "^8.15.0",
-    "eslint-plugin-react": "^7.29.4",
-    "prettier": "^2.6.2",
-    "typescript": "^4.6.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "winkid",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "eject": "react-scripts eject",
+        "test:all": "yarn test:eslint && yarn test:prettier",
+        "test:all:fix": "yarn test:eslint:fix && yarn test:prettier",
+        "test:eslint": "eslint '**/*.{js,jsx,ts,tsx}'",
+        "test:eslint:fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
+        "test:prettier": "prettier '**/*.{js,jsx,ts,tsx,json}' --write",
+        "test:commit": "commitlint -e",
+        "test:e2e": "cypress run"
+    },
+    "dependencies": {
+        "@sentry/react": "6.19.7",
+        "axios": "0.27.2",
+        "classnames": "2.3.1",
+        "dayjs": "1.11.2",
+        "effector": "22.3.0",
+        "effector-react": "22.0.6",
+        "react": "18.1.0",
+        "react-dom": "18.1.0",
+        "react-hook-form": "7.31.1",
+        "react-hot-toast": "2.2.0",
+        "react-loading-skeleton": "3.1.0",
+        "react-query": "3.39.0",
+        "react-router-dom": "6.3.0",
+        "react-scripts": "5.0.1",
+        "rooks": "5.11.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "16.2.4",
+        "@commitlint/config-conventional": "16.2.4",
+        "@types/node": "17.0.32",
+        "@types/react": "18.0.9",
+        "@types/react-dom": "18.0.3",
+        "@typescript-eslint/eslint-plugin": "5.23.0",
+        "@typescript-eslint/parser": "5.23.0",
+        "autoprefixer": "10.4.7",
+        "cssnano": "5.1.7",
+        "eslint": "8.15.0",
+        "eslint-plugin-dirs": "0.0.4",
+        "eslint-plugin-react": "7.29.4",
+        "eslint-plugin-react-hooks": "4.5.0",
+        "eslint-plugin-simple-import-sort": "7.0.0",
+        "eslint-plugin-unicorn": "42.0.0",
+        "eslint-plugin-unused-imports": "2.0.0",
+        "husky": "8.0.1",
+        "lint-staged": "12.4.1",
+        "postcss": "8.4.13",
+        "prettier": "2.6.2",
+        "stylelint": "14.8.2",
+        "stylelint-config-standard": "25.0.0",
+        "tailwindcss": "3.0.24",
+        "typescript": "4.6.4"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "lint-staged": {
+        "**/*.{ts,tsx,js,jsx}": [
+            "eslint --fix"
+        ],
+        "**/*.json": [
+            "prettier --write"
+        ],
+        "**/*.css": [
+            "stylelint --fix"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }

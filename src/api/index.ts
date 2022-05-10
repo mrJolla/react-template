@@ -1,4 +1,5 @@
 import axios, { AxiosRequestHeaders } from 'axios';
+
 import { API } from '../constants/api';
 
 export type ApiRequest = {

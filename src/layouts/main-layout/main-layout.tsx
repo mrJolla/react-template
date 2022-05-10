@@ -1,10 +1,7 @@
-import React, { FC,  ReactNode } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 
-type Props = {
-    children?: ReactNode
-}
+type Props = Record<string, unknown>;
 
-export const MainLayout: FC<Props> = ({children}) => {
+export const MainLayout: FC<PropsWithChildren<Props>> = ({ children }) => {
     return <>{children}</>;
 };
-

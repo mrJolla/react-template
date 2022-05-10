@@ -1,19 +1,21 @@
-import logo from '../../static/images/logo.svg';
 import React, { FC } from 'react';
 
+import logo from '../../static/images/logo.svg';
+
+import styles from './app-header.module.css';
+
 export const AppHeader: FC = () => {
-    return <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-        >
-            Learn React
-        </a>
-    </header>;
+    return (
+        <header className={styles.header}>
+            <img alt='logo' className={styles.logo} src={logo} />
+
+            <p>
+                Edit <code>src/App.tsx</code> and save to reload.
+            </p>
+
+            <a className={styles.link} href='https://reactjs.org' rel='noopener noreferrer' target='_blank'>
+                Learn React
+            </a>
+        </header>
+    );
 };
