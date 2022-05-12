@@ -11,30 +11,30 @@ import { App } from './pages/app/app';
 import './static/css/index.css';
 
 export const queryClient = new QueryClient({
-    defaultOptions: {
-        queries: {
-            staleTime: 0,
-            cacheTime: 0,
-            refetchOnWindowFocus: false,
-            refetchOnMount: false,
-            refetchOnReconnect: false,
-            retry: 0,
-        },
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+      cacheTime: 0,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      retry: 0,
     },
+  },
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-    <StrictMode>
-        <QueryClientProvider client={queryClient}>
-            <BrowserRouter>
-                <Routes>
-                    <Route element={<App />} path='/' />
-                </Routes>
-            </BrowserRouter>
+  <StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<App />} path='/' />
+        </Routes>
+      </BrowserRouter>
 
-            {isDev() && <ReactQueryDevtools />}
-        </QueryClientProvider>
-    </StrictMode>,
+      {isDev() && <ReactQueryDevtools />}
+    </QueryClientProvider>
+  </StrictMode>,
 );

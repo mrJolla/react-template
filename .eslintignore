@@ -1,7 +1,13 @@
+# common
 node_modules
-yarn.lock
 package.json
+.idea
+.vscode
+.husky
+
+# next
+.next
 public
-/.idea
-/.husky
-/.next
+
+# prod
+.build
