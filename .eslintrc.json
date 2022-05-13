@@ -79,6 +79,7 @@
     "unicorn/prefer-switch": "error",
     "unicorn/prefer-string-replace-all": "error",
     "unicorn/prefer-spread": "error",
+    "unicorn/no-useless-spread": "error",
     // Dirs
     "dirs/dirnames": [
       2,
