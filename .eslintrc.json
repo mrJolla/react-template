@@ -2,8 +2,21 @@
   "env": {
     "node": true
   },
-  "plugins": ["react", "@typescript-eslint", "unicorn", "dirs", "unused-imports", "simple-import-sort", "react-hooks"],
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "unicorn",
+    "dirs",
+    "unused-imports",
+    "simple-import-sort",
+    "react-hooks"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
   "rules": {
     // Eslint common
     "no-console": "error",
@@ -30,7 +43,13 @@
     "simple-import-sort/imports": [
       "error",
       {
-        "groups": [["^(react)(\\/.*|$)", "^next"], ["^@?\\w"], ["^~(src)(/.*|$)"], ["^\\."], ["(css)$"]]
+        "groups": [
+          ["^(react)(\\/.*|$)", "^next"],
+          ["^@?\\w"],
+          ["^~(src)(/.*|$)"],
+          ["^\\."],
+          ["(css)$"]
+        ]
       }
     ],
     "simple-import-sort/exports": "error",
