@@ -1,4 +1,3 @@
-// lint-staged.config.js
 module.exports = {
   // Type check TypeScript files
   '**/*.(ts|tsx)': () => 'yarn tsc --noEmit',
@@ -10,7 +9,8 @@ module.exports = {
   ],
 
   // Format MarkDown and JSON
-  '**/*.(md|json)': (filenames) => `yarn prettier --write ${filenames.join(' ')}`,
+  '**/*.(md|json)': (filenames) =>
+    `yarn prettier --write ${filenames.join(' ')}`,
 
   // Format CSS
   '**/*.(css)': (filenames) => `yarn stylelint --fix ${filenames.join(' ')}`,

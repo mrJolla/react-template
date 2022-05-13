@@ -4,6 +4,6 @@ const API_URL =
     : 'http://fake.backend';
 
 export const API = {
-  timeout: 60000,
+  timeout: 60_000,
   url: API_URL,
 };
