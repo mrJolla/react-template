@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import ReactDOM from 'react-dom/client';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { isDev } from './libs/is-dev';
@@ -13,8 +13,8 @@ import './static/css/index.css';
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 0,
-      cacheTime: 0,
+      staleTime: Number.POSITIVE_INFINITY,
+      cacheTime: Number.POSITIVE_INFINITY,
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchOnReconnect: false,

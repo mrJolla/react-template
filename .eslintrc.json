@@ -3,7 +3,6 @@
     "node": true
   },
   "plugins": [
-    "react",
     "@typescript-eslint",
     "unicorn",
     "dirs",
@@ -13,7 +12,7 @@
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:unicorn/recommended"
@@ -71,7 +70,7 @@
       }
     ],
     // React
-    "react/react-in-jsx-scope": "off",
+    //    "react/react-in-jsx-scope": "off",
     "react/no-unknown-property": "error",
     "react/jsx-sort-props": [
       "error",
@@ -79,22 +78,16 @@
         "callbacksLast": true,
         "ignoreCase": true,
         "shorthandFirst": true,
-        "reservedFirst": true
+        "reservedFirst": true,
+        "multiline": "last"
       }
     ],
     "react/jsx-curly-brace-presence": ["error", "never"],
-    "react/jsx-curly-spacing": [
-      "error",
-      {
-        "when": "never",
-        "children": true
-      }
-    ],
-    "react/jsx-boolean-value": ["error", "always"],
+    "react/jsx-boolean-value": ["error", "never"],
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".jsx", ".tsx"]
+        "extensions": [".tsx"]
       }
     ],
     // React hooks

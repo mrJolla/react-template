@@ -8,6 +8,7 @@ export function App() {
     <MainLayout>
       <div className={styles.app}>
         <AppHeader />
+        1234567890
       </div>
     </MainLayout>
   );
