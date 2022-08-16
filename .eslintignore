@@ -11,3 +11,5 @@ public
 
 # prod
 .build
+
+*.js
