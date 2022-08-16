@@ -1,24 +1,45 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
   "env": {
-    "node": true
+    "node": true,
+    "browser": true,
+    "es6": true
   },
   "plugins": [
+    "react",
     "@typescript-eslint",
-    "unicorn",
-    "dirs",
-    "unused-imports",
+    "react-hooks",
+    "effector",
     "simple-import-sort",
-    "react-hooks"
+    "unused-imports",
+    "dirs",
+    "unicorn"
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:react/jsx-runtime",
+    "airbnb-typescript",
+    "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:effector/recommended",
+    "plugin:effector/scope",
+    "plugin:import/recommended",
     "plugin:prettier/recommended",
-    "plugin:unicorn/recommended"
+    "plugin:unicorn/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
   ],
   "rules": {
     // Eslint common
+    "no-unused-vars": "off",
     "no-console": "error",
     "no-multi-spaces": "error",
     "no-multiple-empty-lines": [
@@ -70,8 +91,7 @@
       }
     ],
     // React
-    //    "react/react-in-jsx-scope": "off",
-    "react/no-unknown-property": "error",
+    "react/react-in-jsx-scope": "off",
     "react/jsx-sort-props": [
       "error",
       {
@@ -87,15 +107,20 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".tsx"]
+        "extensions": [".tsx", ".jsx"]
       }
     ],
-    // React hooks
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "error",
     // TypeScript
     "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-var-requires": "off"
+    "@typescript-eslint/no-var-requires": "off",
+    // JSX-a11y
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ]
   }
 }

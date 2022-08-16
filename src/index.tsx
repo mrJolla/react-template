@@ -23,9 +23,7 @@ export const queryClient = new QueryClient({
   },
 });
 
-const root = ReactDOM.createRoot(
-  document.querySelector('#root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement);
 
 root.render(
   <StrictMode>
