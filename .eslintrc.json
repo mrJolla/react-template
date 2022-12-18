@@ -4,31 +4,25 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2018,
+    "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": "./tsconfig.json"
-  },
-  "env": {
-    "node": true,
-    "browser": true,
-    "es6": true
+    "project": [
+      "./tsconfig.json"
+    ]
   },
   "plugins": [
-    "react",
     "@typescript-eslint",
-    "react-hooks",
     "effector",
-    "simple-import-sort",
     "unused-imports",
     "dirs",
+    "sort-keys-fix",
+    "typescript-sort-keys",
     "unicorn"
   ],
   "extends": [
     "eslint:recommended",
-    "airbnb-typescript",
-    "airbnb/hooks",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/jsx-runtime",
     "plugin:effector/recommended",
     "plugin:effector/scope",
     "plugin:import/recommended",
@@ -38,7 +32,68 @@
     "prettier"
   ],
   "rules": {
-    // Eslint common
+    // react
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "shorthandFirst": true,
+        "reservedFirst": true,
+        "multiline": "last"
+      }
+    ],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      "never"
+    ],
+    "react/display-name": "off",
+    "react/jsx-boolean-value": [
+      "error",
+      "never"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx",
+          ".jsx"
+        ]
+      }
+    ],
+    // eslint
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": [
+          "const",
+          "let"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": [
+          "const",
+          "let"
+        ],
+        "next": [
+          "const",
+          "let"
+        ]
+      }
+    ],
+    "arrow-body-style": [
+      "error",
+      "as-needed"
+    ],
     "no-unused-vars": "off",
     "no-console": "error",
     "no-multi-spaces": "error",
@@ -55,71 +110,76 @@
         "SwitchCase": 1
       }
     ],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    // Unused imports
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    // import
+    "import/no-unresolved": "off",
+    // sort-keys-fix
+    "sort-keys-fix/sort-keys-fix": "error",
+    // unused-imports
     "unused-imports/no-unused-imports": "error",
-    // Simple import sort
-    "simple-import-sort/imports": [
+    // unicorn
+    "unicorn/filename-case": [
       "error",
       {
-        "groups": [
-          ["^(react)(\\/.*|$)", "^next"],
-          ["^@?\\w"],
-          ["^~(src)(/.*|$)"],
-          ["^~(mocks)(/.*|$)"],
-          ["^\\."],
-          ["(gif|jpe?g|tiff?|png|webp|bmp)$"],
-          ["(css)$"]
-        ]
+        "case": "kebabCase"
       }
     ],
-    "simple-import-sort/exports": "error",
-    // Unicorn
+    "unicorn/consistent-function-scoping": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/no-null": "off",
     "unicorn/explicit-length-check": "off",
     "unicorn/no-array-callback-reference": "off",
     "unicorn/no-array-reduce": "off",
     "unicorn/prefer-module": "off",
-    // Dirs
+    "unicorn/prefer-node-protocol": "off",
+    // dirs
     "dirs/dirnames": [
       2,
       {
         "pattern": "^[a-z-]+$"
       }
     ],
-    // React
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-sort-props": [
+    // typescript
+    "typescript-sort-keys/interface": [
       "error",
+      "asc",
       {
-        "callbacksLast": true,
-        "ignoreCase": true,
-        "shorthandFirst": true,
-        "reservedFirst": true,
-        "multiline": "last"
+        "caseSensitive": true,
+        "natural": false,
+        "requiredFirst": true
       }
     ],
-    "react/jsx-curly-brace-presence": ["error", "never"],
-    "react/jsx-boolean-value": ["error", "never"],
-    "react/jsx-filename-extension": [
-      1,
+    "typescript-sort-keys/string-enum": [
+      "error",
+      "asc",
       {
-        "extensions": [".tsx", ".jsx"]
+        "caseSensitive": true
       }
     ],
-    // TypeScript
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-var-requires": "off",
-    // JSX-a11y
+    // jsx-a11y
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight"],
-        "aspects": ["invalidHref", "preferButton"]
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "hrefLeft",
+          "hrefRight"
+        ],
+        "aspects": [
+          "invalidHref",
+          "preferButton"
+        ]
       }
     ]
   }

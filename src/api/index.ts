@@ -1,11 +1,12 @@
-import axios, { AxiosRequestHeaders } from 'axios';
+import axios from 'axios';
+import type { AxiosRequestHeaders } from 'axios';
 
 import { API } from '../constants/api';
 
 export type ApiRequest = {
   url: string;
-  postData?: Record<string, unknown>;
   headerList?: AxiosRequestHeaders;
+  postData?: Record<string, unknown>;
   type?: 'GET' | 'POST' | 'PATCH' | 'DELETE';
 };
 
@@ -16,19 +17,24 @@ export const Api = axios.create({
 
 export const apiRequest = async ({ type = 'GET', url, postData, headerList }: ApiRequest) => {
   switch (type) {
-    case 'GET':
+    case 'GET': {
       return Api.get(url, { headers: headerList }).then((r) => r.data);
+    }
 
-    case 'POST':
+    case 'POST': {
       return Api.post(url, postData, { headers: headerList }).then((r) => r.data);
+    }
 
-    case 'PATCH':
+    case 'PATCH': {
       return Api.patch(url, postData, { headers: headerList }).then((r) => r.data);
+    }
 
-    case 'DELETE':
+    case 'DELETE': {
       return Api.delete(url, { headers: headerList }).then((r) => r.data);
+    }
 
-    default:
+    default: {
       throw new Error('Unknown request type. Must match to: "GET", "POST", "PATCH" or "DELETE"');
+    }
   }
 };

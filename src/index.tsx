@@ -13,12 +13,12 @@ import './static/css/index.css';
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: Number.POSITIVE_INFINITY,
       cacheTime: Number.POSITIVE_INFINITY,
-      refetchOnWindowFocus: false,
       refetchOnMount: false,
       refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
       retry: 0,
+      staleTime: Number.POSITIVE_INFINITY,
     },
   },
 });

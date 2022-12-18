@@ -3,5 +3,6 @@
   "jsxSingleQuote": true,
   "printWidth": 120,
   "tabWidth": 2,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
