@@ -23,8 +23,11 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:effector/recommended",
+    "plugin:effector/react",
     "plugin:effector/scope",
+    "plugin:effector/future",
+    "plugin:effector/patronum",
+    "plugin:effector/recommended",
     "plugin:import/recommended",
     "plugin:prettier/recommended",
     "plugin:unicorn/recommended",
@@ -117,6 +120,18 @@
     "semi": [
       "error",
       "always"
+    ],
+    // effector
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "effector-react",
+            "message": "Please import from 'effector-react/scope' instead."
+          }
+        ]
+      }
     ],
     // import
     "import/no-unresolved": "off",
