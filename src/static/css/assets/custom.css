@@ -1,0 +1,31 @@
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Position */
+[class*='pos-abs'] {
+  @apply absolute;
+}
+
+.pos-abs {
+  @apply top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2;
+}
+
+.pos-abs-y {
+  @apply top-1/2 -translate-y-1/2;
+}
+
+.pos-abs-x {
+  @apply left-1/2 -translate-x-1/2;
+}
+
+/* Grid */
+.container {
+  @apply mx-auto w-full max-w-[1304px] px-5 md:px-8;
+}
+
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  img[loading='lazy'] {
+    clip-path: inset(0.6px);
+  }
+}

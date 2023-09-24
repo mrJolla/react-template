@@ -1,34 +1,4 @@
-/* stylelint-disable -- Tailwind config must have such imports */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* stylelint-enable */
-
-body {
-  margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    "Courier New",
-    monospace;
-}
+@import url('./assets/tailwind.css');
+@import url('./assets/custom.css');
+@import url('./assets/reset.css');
+@import url('./assets/toast.css');

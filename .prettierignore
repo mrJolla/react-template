@@ -1,13 +1,7 @@
 # common
 node_modules
-package.json
 .idea
-.vscode
 .husky
 
 # next
 .next
-public
-
-# prod
-.build

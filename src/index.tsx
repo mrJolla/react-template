@@ -1,40 +1,40 @@
-import { StrictMode } from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { BrowserRouter } from 'react-router-dom';
 
-import { isDev } from './libs/is-dev';
-import { App } from './pages/app/app';
+import { App } from './app';
 
-import './static/css/index.css';
+import '~/static/css/index.css';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      cacheTime: Number.POSITIVE_INFINITY,
+      cacheTime: 5 * 60 * 1000,
       refetchOnMount: false,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
       retry: 0,
-      staleTime: Number.POSITIVE_INFINITY,
+      staleTime: 5 * 60 * 1000,
     },
   },
 });
 
-const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement);
-
-root.render(
-  <StrictMode>
+ReactDOM.createRoot(document.querySelector('#root')!).render(
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Routes>
-          <Route element={<App />} path='/' />
-        </Routes>
+        <App />
       </BrowserRouter>
 
-      {isDev() && <ReactQueryDevtools />}
+      <ReactQueryDevtools />
+
+      <Toaster position='top-right' />
     </QueryClientProvider>
-  </StrictMode>
+  </React.StrictMode>,
 );

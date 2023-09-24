@@ -1,7 +1,6 @@
 {
   "extends": [
     "stylelint-config-standard",
-    "stylelint-config-prettier",
     "stylelint-config-clean-order"
   ],
   "plugins": [
@@ -12,9 +11,7 @@
     "selector-id-pattern": "[_a-zA-Z0-9]+",
     "no-empty-source": null,
     "declaration-empty-line-before": null,
-    "no-missing-end-of-source-newline": null,
     "keyframes-name-pattern": null,
-    "at-rule-no-unknown": true,
-    "max-empty-lines": 1
+    "at-rule-no-unknown": true
   }
 }
