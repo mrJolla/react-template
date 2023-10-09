@@ -76,7 +76,13 @@
     // eslint-plugin-import
     "import/no-unresolved": "off",
     // eslint-plugin-sort-keys-fix
-    "sort-keys-fix/sort-keys-fix": "error",
+    "sort-keys-fix/sort-keys-fix": [
+      "error",
+      "asc",
+      {
+        "natural": true
+      }
+    ],
     // eslint-plugin-unused-imports
     "unused-imports/no-unused-imports": "error",
     // eslint-plugin-dirs
