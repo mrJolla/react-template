@@ -78,7 +78,7 @@ export const showToast = ({
       </div>
 
       <button
-        className='border-border/20 text-dark mt-1 rounded-xl border bg-white size-8 flex-center'
+        className='mt-1 rounded-xl border border-black/20 bg-white text-black size-8 flex-center'
         onClick={() => toast.dismiss(t.id)}
       >
         <Icon
