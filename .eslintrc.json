@@ -1,46 +1,36 @@
 {
   "root": true,
-  "env": { "browser": true, "es2020": true },
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:effector/recommended",
+    "plugin:effector/scope",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:unicorn/recommended",
+    "plugin:tailwindcss/recommended"
+  ],
   "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module",
-    "project": ["./tsconfig.json"]
-  },
   "plugins": [
-    "@typescript-eslint",
     "react-refresh",
     "effector",
     "unused-imports",
     "dirs",
     "sort-keys-fix",
     "typescript-sort-keys",
-    "simple-import-sort",
-    "unicorn",
-    "tailwindcss"
-  ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@tanstack/eslint-plugin-query/recommended",
-    "plugin:effector/recommended",
-    "plugin:effector/scope",
-    "plugin:import/recommended",
-    "plugin:unicorn/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:tailwindcss/recommended"
+    "simple-import-sort"
   ],
   "rules": {
-    "react-refresh/only-export-components": [
-      "warn",
-      { "allowConstantExport": true }
-    ],
-    // react
+    // eslint-plugin-react
     "react/react-in-jsx-scope": "off",
     "react/jsx-sort-props": [
       "error",
@@ -61,51 +51,7 @@
         "extensions": [".tsx", ".jsx"]
       }
     ],
-    // eslint
-    "padding-line-between-statements": [
-      "error",
-      {
-        "blankLine": "always",
-        "prev": "*",
-        "next": "return"
-      },
-      {
-        "blankLine": "always",
-        "prev": ["const", "let"],
-        "next": "*"
-      },
-      {
-        "blankLine": "any",
-        "prev": ["const", "let"],
-        "next": ["const", "let"]
-      }
-    ],
-    "arrow-body-style": ["error", "as-needed"],
-    "no-unused-vars": "off",
-    "no-console": "warn",
-    "no-multi-spaces": "error",
-    "no-multiple-empty-lines": [
-      "error",
-      {
-        "max": 1
-      }
-    ],
-    "indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    // import
-    "import/no-unresolved": "off",
-    // sort-keys-fix
-    "sort-keys-fix/sort-keys-fix": "error",
-    // unused-imports
-    "unused-imports/no-unused-imports": "error",
-    // unicorn
+    // eslint-plugin-unicorn
     "unicorn/filename-case": [
       "error",
       {
@@ -120,7 +66,20 @@
     "unicorn/no-array-reduce": "off",
     "unicorn/prefer-module": "off",
     "unicorn/prefer-node-protocol": "off",
-    // dirs
+    // eslint-plugin-react-refresh
+    "react-refresh/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ],
+    // eslint-plugin-import
+    "import/no-unresolved": "off",
+    // eslint-plugin-sort-keys-fix
+    "sort-keys-fix/sort-keys-fix": "error",
+    // eslint-plugin-unused-imports
+    "unused-imports/no-unused-imports": "error",
+    // eslint-plugin-dirs
     "dirs/dirnames": [
       2,
       {
@@ -146,16 +105,7 @@
     ],
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-var-requires": "off",
-    // jsx-a11y
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight"],
-        "aspects": ["invalidHref", "preferButton"]
-      }
-    ],
-    // simple-import-sort
+    // eslint-plugin-simple-import-sort
     "simple-import-sort/imports": [
       "error",
       {
@@ -163,19 +113,20 @@
           ["^(react)(\\/.*|$)", "^(react-dom)(\\/.*|$)"],
           ["^@?\\w"],
           [
-            "^(src/pages)(\\/.*|$)",
-            "^(src/layouts)(\\/.*|$)",
-            "^(src/containers)(\\/.*|$)",
-            "^(src/components)(\\/.*|$)",
-            "^(src/ui)(\\/.*|$)"
+            "^(~)(\\/.*|$)",
+            "^(~/pages)(\\/.*|$)",
+            "^(~/layouts)(\\/.*|$)",
+            "^(~/containers)(\\/.*|$)",
+            "^(~/components)(\\/.*|$)",
+            "^(~/ui)(\\/.*|$)"
           ],
           [
-            "^(src/api)(\\/.*|$)",
-            "^(src/hooks)(\\/.*|$)",
-            "^(src/store)(\\/.*|$)",
-            "^(src/helpers)(\\/.*|$)",
-            "^(src/types)(\\/.*|$)",
-            "^(src/constants)(\\/.*|$)"
+            "^(~/api)(\\/.*|$)",
+            "^(~/hooks)(\\/.*|$)",
+            "^(~/store)(\\/.*|$)",
+            "^(~/helpers)(\\/.*|$)",
+            "^(~/types)(\\/.*|$)",
+            "^(~/constants)(\\/.*|$)"
           ],
           ["^\\."],
           ["(jpe?g|png|webp|svg|avif)$"],
@@ -184,5 +135,10 @@
       }
     ],
     "simple-import-sort/exports": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

@@ -1,0 +1,5 @@
+/* stylelint-disable -- Tailwind config must have such imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* stylelint-enable */

@@ -1,27 +1,18 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
-
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {
-      fontFamily: {
-        golos: ['"Golos Text"', ...fontFamily.sans],
-      },
-      colors: {
-        blue: '#2A52BE',
-        black: '#000',
-        white: '#FFFFFF',
-        dark: '#0d1321',
-        darkLight: '#171e2e',
-        border: '#374151',
-        menuLink: '#6b7280',
-        text: '#9ca3af',
-      },
-    },
+    extend: {},
   },
   variants: {
     extend: {},
     lineClamp: ['responsive', 'hover'],
+  },
+  corePlugins: {
+    container: false,
+  },
+  future: {
+    hoverOnlyWhenSupported: true,
   },
   plugins: [
     function ({ addUtilities, theme, addVariant }) {
@@ -75,10 +66,5 @@ module.exports = {
       });
     },
   ],
-  corePlugins: {
-    container: false,
-  },
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
-};
+}
+

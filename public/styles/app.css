@@ -1,0 +1,5 @@
+@import url("libs/tailwind.css");
+@import url("libs/skeleton.css");
+
+@import url("global/custom.css");
+@import url("global/toast.css");

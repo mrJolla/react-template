@@ -1,0 +1,27 @@
+@keyframes enter {
+  0% {
+    @apply scale-90 opacity-0;
+  }
+
+  100% {
+    @apply scale-100 opacity-100;
+  }
+}
+
+@keyframes leave {
+  0% {
+    @apply scale-100 opacity-100;
+  }
+
+  100% {
+    @apply scale-90 opacity-0;
+  }
+}
+
+.animate-enter {
+  animation: enter 0.2s ease-out;
+}
+
+.animate-leave {
+  animation: leave 0.15s ease-in forwards;
+}

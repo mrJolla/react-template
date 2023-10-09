@@ -6,26 +6,25 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
 import { BrowserRouter } from 'react-router-dom';
 
-import { App } from './app';
+import { App } from '~/app.tsx';
+import { LONG_CACHE_TIMING } from '~/shared/constants/react-query-timings.ts';
 
-import '~/static/css/index.css';
+import '../public/styles/mocks/index.css';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      cacheTime: 5 * 60 * 1000,
+      cacheTime: LONG_CACHE_TIMING,
       refetchOnMount: false,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
       retry: 0,
-      staleTime: 5 * 60 * 1000,
+      staleTime: LONG_CACHE_TIMING,
     },
   },
 });
 
 ReactDOM.createRoot(document.querySelector('#root')!).render(
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>

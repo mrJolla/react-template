@@ -1,0 +1,18 @@
+.custom-skeleton {
+  --base-color: #1E1F26;
+  --highlight-color: #31333D;
+  --border-color: #2C2D35;
+
+  position: relative;
+  z-index: 1;
+
+  overflow: hidden;
+  display: inline-flex;
+
+  width: 100%;
+
+  line-height: 1;
+
+  background-color: var(--base-color);
+  border: 1px solid var(--border-color);
+}
