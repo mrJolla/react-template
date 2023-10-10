@@ -51,6 +51,9 @@
         "extensions": [".tsx", ".jsx"]
       }
     ],
+    // eslint
+    "no-console": "error",
+    "arrow-body-style": ["error", "as-needed"],
     // eslint-plugin-unicorn
     "unicorn/filename-case": [
       "error",
