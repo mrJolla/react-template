@@ -1,13 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-    lineClamp: ['responsive', 'hover'],
-  },
   corePlugins: {
     container: false,
   },
@@ -20,17 +13,13 @@ export default {
 
       const sizeUtility = Object.entries(spacing).reduce(
         (acc, [key, value]) => {
-          acc[`.size-${key.replace(/[./]/g, '\\$&')}`] = {
-            width: value,
-            height: value,
-          };
-          acc[`.min-size-${key.replace(/[./]/g, '\\$&')}`] = {
-            'min-width': value,
+          acc[`.min-size-${key.replaceAll(/[./]/g, '\\$&')}`] = {
             'min-height': value,
+            'min-width': value,
           };
-          acc[`.max-size-${key.replace(/[./]/g, '\\$&')}`] = {
-            'max-width': value,
+          acc[`.max-size-${key.replaceAll(/[./]/g, '\\$&')}`] = {
             'max-height': value,
+            'max-width': value,
           };
           return acc;
         },
@@ -43,19 +32,19 @@ export default {
       addUtilities({
         ...sizeUtility,
         '.flex-center': {
-          display: 'flex',
           alignItems: 'center',
+          display: 'flex',
           justifyContent: 'center',
         },
         '.pos-abs': {
+          left: '50%',
           position: 'absolute',
           top: '50%',
-          left: '50%',
           transform: 'translate(-50%, -50%)',
         },
         '.pos-abs-x': {
-          position: 'absolute',
           left: '50%',
+          position: 'absolute',
           transform: 'translateX(-50%)',
         },
         '.pos-abs-y': {
@@ -66,5 +55,12 @@ export default {
       });
     },
   ],
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+    lineClamp: ['responsive', 'hover'],
+  },
 }
 

@@ -59,14 +59,14 @@ export const showToast = ({
     >
       <div className='flex flex-1'>
         <div
-          className='rounded-full shadow-lg size-10 flex-center'
+          className='size-10 rounded-full shadow-lg flex-center'
           style={{
             backgroundColor: iconColor,
             boxShadow: `0 10px 15px -3px ${iconColor}80, 0 4px 6px -4px ${iconColor}80`,
           }}
         >
           <Icon
-            className='fill-white size-6'
+            className='size-6 fill-white'
             name={`toast/${icon as SpritesMap['toast']}`}
           />
         </div>
@@ -78,11 +78,11 @@ export const showToast = ({
       </div>
 
       <button
-        className='mt-1 rounded-xl border border-black/20 bg-white text-black size-8 flex-center'
+        className='mt-1 size-8 rounded-xl border border-black/20 bg-white text-black flex-center'
         onClick={() => toast.dismiss(t.id)}
       >
         <Icon
-          className='fill-current size-3'
+          className='size-3 fill-current'
           name='common/cross-bold'
         />
       </button>

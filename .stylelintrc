@@ -12,6 +12,20 @@
     "no-empty-source": null,
     "declaration-empty-line-before": null,
     "keyframes-name-pattern": null,
-    "at-rule-no-unknown": true
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["tailwind", "import"]
+    }],
+    "at-rule-empty-line-before": ["always", {
+      "ignore": ["first-nested", "after-comment", "blockless-after-blockless"],
+      "ignoreAtRules": ["tailwind", "layer"]
+    }],
+    "custom-property-empty-line-before": ["always", {
+      "ignore": ["first-nested"],
+      "except": ["after-custom-property"]
+    }],
+    "rule-empty-line-before": ["always", {
+      "ignore": ["after-comment", "first-nested"]
+    }]
   }
 }
+
